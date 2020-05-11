@@ -39,7 +39,7 @@ type P2C struct {
 // New returns a new instance of RandomTwoBalancer
 func New(hosts ...string) *P2C {
 	p := &P2C{
-		hosts:   []*host{},
+		hosts:   make([]*host, 0, len(hosts)),
 		loadMap: map[string]*host{},
 		rndm:    rand.New(rand.NewSource(time.Now().UnixNano())),
 	}
